@@ -21,9 +21,29 @@ MonoBehaviour:
       m_GuidLow: 5610306138246650804
       m_GuidHigh: 1298600172956630712
     m_SerializedTextureGuid:
-      m_GuidLow: 11377335552401359979
-      m_GuidHigh: 1948566248065842889
+      m_GuidLow: 7702374760876988975
+      m_GuidHigh: 10619344983105630520
     m_Size: {x: 0.1, y: 0.1}
     m_SpecifySize: 0
     m_Name: cobblestone
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5324058190404491654
+      m_GuidHigh: 8753679547287322295
+    m_SerializedTextureGuid:
+      m_GuidLow: 4432801421469668527
+      m_GuidHigh: 17200970552280160875
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: dlsu-logo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5707090393331995422
+      m_GuidHigh: 15183605932601566624
+    m_SerializedTextureGuid:
+      m_GuidLow: 1910831447792658301
+      m_GuidHigh: 1031010965184788440
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: dog
     m_Texture: {fileID: 0}

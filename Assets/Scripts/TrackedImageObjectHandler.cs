@@ -5,18 +5,36 @@ using UnityEngine.XR.ARFoundation;
 
 public class TrackedImageObjectHandler : MonoBehaviour
 {
-    [SerializeField] private GameObject _spawnObject;
+    [SerializeField] private ImageObjectLibrary _imgObjLib;
 
+    private List<GameObject> _spawnedObjects = new List<GameObject>();
+    private int _virtualObjIndex = 0;
+
+    public void Start()
+    {
+        UIManager.Instance.OnSwitchVirtualObject += ReplaceSpawnedObjects;
+    }
+    private void OnDestroy()
+    {
+        UIManager.Instance.OnSwitchVirtualObject -= ReplaceSpawnedObjects;
+    }
+
+    
     public void OnTrackedImageChanged(ARTrackablesChangedEventArgs<ARTrackedImage> eventArgs)
     {
-        foreach(var image in eventArgs.added)
+        foreach(ARTrackedImage image in eventArgs.added)
         {
             Debug.Log("[Added]: " +  image.referenceImage.name + " | Tracking state: " + image.trackingState);
 
-            TestSpawn(image.transform.position);
+
+            GameObject newSpawn = Instantiate(
+                _imgObjLib.GetGameObject(image.referenceImage.name, _virtualObjIndex), 
+                image.transform);
+
+            _spawnedObjects.Add(newSpawn);
         }
 
-        foreach (var image in eventArgs.updated)
+        /*foreach (var image in eventArgs.updated)
         {
             Debug.Log("[Updated]: " + image.referenceImage.name + " | Tracking state: " + image.trackingState);
         }
@@ -24,12 +42,34 @@ public class TrackedImageObjectHandler : MonoBehaviour
         foreach (var image in eventArgs.removed)
         {
             Debug.Log("[Removed]: " + image.referenceImage.name + " | Tracking state: " + image.trackingState);
-        }
+        }*/
     }
 
-
-    private void TestSpawn(Vector3 loc)
+    public void ReplaceSpawnedObjects(object sender, int virtualObjIndex)
     {
-        //Instantiate(_spawnObject, loc, Quaternion.identity);
+        
+        if (virtualObjIndex == this._virtualObjIndex)
+        {
+            Debug.LogWarning("Switch cancelled. Same virtual objects");
+            return;
+        }
+
+        Debug.Log("Switching virtual objects to " + virtualObjIndex);
+
+        this._virtualObjIndex = virtualObjIndex;
+
+        
+        List<GameObject> newSpawns = new List<GameObject>();
+        foreach(GameObject oldObj in  _spawnedObjects)
+        {
+            newSpawns.Add( 
+                Instantiate(_imgObjLib.GetGameObject(oldObj, virtualObjIndex), oldObj.transform.parent)
+                );
+
+            Destroy(oldObj);
+        }
+
+        _spawnedObjects.Clear();
+        _spawnedObjects = newSpawns;
     }
 }
