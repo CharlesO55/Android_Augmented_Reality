@@ -1,0 +1,20 @@
+VisualElement {}
+
+.TextSized{
+	-unity-font-style: bold; 
+	font-size: 24px; 
+	color: rgb(255, 255, 255); 
+	-unity-text-outline-width: 0.5px; 
+	-unity-text-outline-color: rgb(0, 0, 0);
+}
+
+#SettingsIconBtn{
+	--unity-image-size: scale-to-fit
+
+	height: 8%;
+	width: 8%;
+
+	align-self: flex-end;
+	--unity-image: url("/Assets/PointMarkers/SettingsLogo.png");
+
+}

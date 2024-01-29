@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/PointMarkers/UIMarkers.uss?fileID=7433441132597879392&amp;guid=9acdc91d3109d5f49a0c883bb0b6c5b2&amp;type=3#UIMarkers" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1; background-color: rgba(76, 76, 76, 0); margin-bottom: 0; margin-top: 1%; margin-right: 0; margin-left: 1%; align-items: flex-start; width: 519px;">
+        <ui:VisualElement name="ControlsContainer" style="flex-grow: 1; align-self: stretch; background-color: rgba(203, 203, 203, 0.39); height: auto; flex-direction: column; flex-wrap: nowrap; margin-bottom: 0; position: absolute; width: 100%; display: none;">
+            <ui:Label text="AR Controls" name="Title" style="align-self: center; -unity-font-style: bold; font-size: 30px;" />
+            <ui:Slider label="Camera Distance" value="0" high-value="2" name="CameraDistance" class="TextSized" style="width: 100%;" />
+            <ui:Toggle label="Enable Point Cloud" name="ToggleMarkers" class="TextSized" />
+            <ui:Button text="Press to Delete All Anchors" name="DeleteAnchorsBtn" class="TextSized" />
+            <ui:DropdownField label="Anchor Object" choices="OBJECT A,OBJECT B,OBJECT C" name="AnchorSelector" class="TextSized" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Image name="SettingsIconBtn" style="flex-direction: column; justify-content: flex-start; align-self: flex-end; width: 200px; height: 200px; align-items: auto; flex-wrap: nowrap; position: absolute; opacity: 0.8;" />
+</ui:UXML>
