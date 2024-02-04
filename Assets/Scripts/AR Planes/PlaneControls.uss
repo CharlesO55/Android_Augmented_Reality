@@ -1,0 +1,8 @@
+VisualElement {}
+
+.textstyle{
+	-unity-font-style: bold; 
+	color: rgb(255, 255, 255); 
+	-unity-text-outline-width: 0.5px; 
+	font-size: 28px; 
+}

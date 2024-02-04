@@ -1,5 +1,7 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Scripts/AR%20Planes/PlaneControls.uss?fileID=7433441132597879392&amp;guid=916df492fc5d3594facc6168876bcd60&amp;type=3#PlaneControls" />
     <ui:VisualElement style="flex-grow: 1;">
-        <ui:Toggle label="Plane Visibility" name="PlaneVisibility" style="-unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-outline-width: 0.5px; font-size: 28px; margin-left: 2%; margin-top: 2%;" />
+        <ui:Toggle label="Plane Visibility" name="PlaneVisibility" class="textstyle" style="margin-left: 2%; margin-top: 2%;" />
+        <ui:DropdownField label="Furniture" name="FurnitureChoice" choices="Pizza,Table,Pillow" index="0" class="textstyle" style="margin-left: 2%; margin-top: 2%; align-self: flex-start;" />
     </ui:VisualElement>
 </ui:UXML>
