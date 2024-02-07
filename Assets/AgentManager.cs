@@ -9,7 +9,8 @@ public class AgentManager : MonoBehaviour
 
     private List<ARAgent> m_Agents;
 
-    public bool m_IsUpdating;
+    private Transform m_Target;
+
 
     void Awake()
     {
@@ -25,19 +26,17 @@ public class AgentManager : MonoBehaviour
 
     void Start()
     {
-        m_IsUpdating = false;
-
         m_Agents = new List<ARAgent>(GetComponentsInChildren<ARAgent>());
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!m_IsUpdating)
-        {
-            return;
-        }
+        //MoveAgentsClick();
+    }
 
+
+    private void MoveAgentsClick()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,18 +44,20 @@ public class AgentManager : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if(hit.collider.CompareTag("Plane"))
+                if (hit.collider.CompareTag("Plane"))
                     MoveAllAgents(hit.point);
             }
-
-        }  
+        }
     }
 
     public void MoveAllAgents(Vector3 position)
     {
         foreach (var agent in m_Agents)
         {
-            agent.MoveAgent(position);
+            if (!agent.MoveAgent(position))
+            {
+                return;
+            }
         }
     }
 
