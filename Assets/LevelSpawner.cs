@@ -6,41 +6,37 @@ using UnityEngine.XR.ARSubsystems;
 
 public class LevelSpawner : MonoBehaviour
 {
-    [SerializeField] private ARRaycastManager m_Raycaster;
     [SerializeField] private GameObject m_LevelToSpawn;
 
     private bool m_HasSpawnedAlready = false;
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0) &&
             !m_HasSpawnedAlready)
         {
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            List<ARRaycastHit> hits = new();
-            if (m_Raycaster.Raycast(ray, hits, TrackableType.PlaneWithinPolygon))
+
+            if (RaycastSystem.INSTANCE.ARRaycast(Input.mousePosition, out Vector3 hitPos))
             {
-                foreach (var hit in hits)
-                {
-                    if (hit.trackable.GetComponent<ARPlane>())
-                    {
-                        Debug.Log("Che");
-
-                        SpawnLevel(hit.trackable.transform);
-
-                        break;
-                    }
-                }
+                SpawnAnchored(hitPos);
             }
-        }   
+        }
     }
 
-    private void SpawnLevel(Transform trackableTransform)
+    private void SpawnAnchored(Vector3 worldPos)
     {
-        m_HasSpawnedAlready = true;
+        GameObject newAnchor = new("Level Anchor", typeof(ARAnchor));
+        newAnchor.transform.SetParent(this.transform);
+        newAnchor.transform.position = worldPos;
 
-        Instantiate(this.m_LevelToSpawn, trackableTransform);
 
-        Debug.Log("Spawned level on horizontal plane");
+        GameObject newLevel = GameObject.Instantiate(m_LevelToSpawn, newAnchor.transform);
+        newLevel.transform.localPosition = Vector3.zero;
+
+
+        this.m_HasSpawnedAlready = true;
     }
 }
