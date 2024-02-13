@@ -48,6 +48,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 38d1568cb903750479423dc73a0a36f2, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 58e68a01d8a6e3a428294dfbdc94de1b, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[6]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 588eea231ca5b01419fa45f33d87018f, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[8]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 0c4ad4c5a72e91c45b7c1264dcd40430, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[10]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f6aa8168234112b47b361124e746d16f, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[11]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d4357c97d7478fc488b491af4ff90bd1, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[13]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 94f50f5cefea52c43a5f46b8f50d3165, type: 2}
+    - target: {fileID: -1206874426333947015, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
+      propertyPath: 'm_Materials.Array.data[14]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 571ce66bf04096b40b3004333c70a76b, type: 2}
     - target: {fileID: 919132149155446097, guid: c1a6efcf15e1cd4478cff6f423aa160e, type: 3}
       propertyPath: m_Name
       value: BoccherChar

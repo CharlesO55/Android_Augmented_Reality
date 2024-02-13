@@ -10,6 +10,7 @@ public class ARAgent : MonoBehaviour
 
     private NavMeshAgent m_Agent;
 
+    [SerializeField] Animator m_Animator;
     [SerializeField] private NavMeshSurface m_Surface;
     void Start()
     {
@@ -25,6 +26,11 @@ public class ARAgent : MonoBehaviour
             return false;
         }
 
+
+        if (m_Animator)
+        {
+            m_Animator.SetBool("IsMoving", true);
+        }
         m_Agent.isStopped = false;
         m_Agent.destination = position;
 
@@ -33,6 +39,10 @@ public class ARAgent : MonoBehaviour
 
     public void StopAgent()
     {
+        if (m_Animator)
+        {
+            m_Animator.SetBool("IsMoving", false);
+        }
         m_Agent.isStopped = true;
     }
 }
